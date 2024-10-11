@@ -6,48 +6,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="responsive.css">
-    <link rel="stylesheet" href="animation.css">
     <link rel="stylesheet" href="script.js">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="icon" href="image/logo.png" type="image/png">
     <title>Artifex AH</title>
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="content">
-            <div class="logo">
-                <a href="#">Artifex AH</a>
-            </div>
-            <ul class="menu-list">
-                <div class="menu-list-top">
-                    <div class="icon cancel-btn">
-                        <i class="fas fa-times"></i>
-                    </div>
-                    <div class="logo-mobile">
-                        <a href="#">Artifex AH</a>
-                    </div>
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__data">
+                <a href="#" class="nav__logo">
+                    <i class="ri-planet-line"></i> Artifex AH
+                </a>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="ri-menu-line nav__burger"></i>
+                    <i class="ri-close-line nav__close"></i>
                 </div>
-                <li><a href="#">Hem</a></li>
-                <li><a href="#">Tjänster</a></li>
-                <li><a href="#">Projekt</a></li>
-                <li><a href="#">Expertise</a></li>
-                <li><a href="#">Kontakta</a></li>
-            </ul>
-            <div class="icon menu-btn">
-                <i class="fas fa-bars"></i>
             </div>
-        </div>
-    </nav>
+
+            <!--=============== NAV MENU ===============-->
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li><a href="#hero" class="nav__link">Hem</a></li>
+                    <li><a href="#features" class="nav__link">Hmm?</a></li>
+                    <li><a href="#showcase" class="nav__link">Projekt</a></li>
+
+                    <!--=============== DROPDOWN 1 ===============-->
+                    <li class="dropdown__item">
+                        <div class="nav__link">Tjänster<i class="ri-arrow-down-s-line dropdown__arrow"></i></div>
+                        <ul class="dropdown__menu">
+                            <li><a href="#expertise" class="dropdown__link"><i class="ri-paint-brush-line"></i> UI/UX
+                                    Konsultation</a></li>
+                            <li><a href="#expertise" class="dropdown__link"><i class="ri-pencil-ruler-2-line"></i> Mobil
+                                    anpassnings</a></li>
+                            <li><a href="#expertise" class="dropdown__link"><i class="ri-seo-line"></i> SEO
+                                    Optimering</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#contact" class="nav__link">Kontakta</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
     <main class="hero" id="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-wrap">
+                <div class="hero-top">
                     <div class="hero-title">
                         <h1>Din Digitala Framgång <br> Börjar Här</h1>
                         <p>
-                            Få en anpassad webbsida som konverterar besökare 
+                            Få en anpassad webbsida som konverterar besökare
                             till kunder och stärker din digitala närvaro
                         </p>
                         <a href="#contact">
@@ -59,14 +71,32 @@
                     </div>
                 </div>
                 <div class="hero-bottom">
-                    <div class="hero-tablet hero-tablet-left">
-                        <img src="image/hero-img-2.png" alt="Tablet Left">
+                    <div class="hero-item">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <h3>Webbdesign</h3>
+                        <p>
+                            Gain Insights and Track Performance
+                            With Robust Analytics and Reporting.
+                        </p>
+                        <a href="#">Läs mer &#10132;</a>
                     </div>
-                    <div class="hero-tablet hero-tablet-center">
-                        <img src="image/showcase-1.png" alt="Tablet Center">
+                    <div class="hero-item">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <h3>UI/UX Konsultation</h3>
+                        <p>
+                            Gain Insights and Track Performance
+                            With Robust Analytics and Reporting.
+                        </p>
+                        <a href="#">Läs mer &#10132;</a>
                     </div>
-                    <div class="hero-tablet hero-tablet-right">
-                        <img src="image/hero-img-3.png" alt="Tablet Right">
+                    <div class="hero-item">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <h3>SEO Optimering</h3>
+                        <p>
+                            Gain Insights and Track Performance
+                            With Robust Analytics and Reporting.
+                        </p>
+                        <a href="#">Läs mer &#10132;</a>
                     </div>
                 </div>
             </div>
@@ -208,9 +238,13 @@
 
     <section class="expertise" id="expertise">
         <div class="container">
+            <div class="expertise-cta">
+
+            </div>
+
             <div class="expertise-content">
                 <div class="expertise-title">
-                    <h3>Expertise</h3>
+                    <h3>Tjänster</h3>
                     <h1>Få alla fördelar att arbeta med oss</h1>
                     <p>
                         Vi kombinerar teknisk kunskap med praktisk erfarenhet för att erbjuda lösningar som
@@ -288,15 +322,17 @@
             <form action="process-form.php" method="POST">
                 <div class="form-row">
                     <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Ditt namn" required>
+                        <input type="text" id="name" name="name" required>
+                        <label>Ditt namn</label>
                     </div>
                     <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Din e-post" required>
+                        <input type="email" id="email" name="email" required>
+                        <label>Din e-post</label>
                     </div>
                 </div>
                 <div class="form-group">
-                    <textarea id="message" name="message" rows="4" placeholder="Berätta om ditt projekt"
-                        required></textarea>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                    <label for="">Berätta om ditt projekt</label>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn">Skicka</button>
