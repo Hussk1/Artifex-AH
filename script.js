@@ -1,31 +1,32 @@
 // ==================== Navbar ==================== 
-const body = document.querySelector("body");
-const navbar = document.querySelector(".navbar");
-const menuBtn = document.querySelector(".menu-btn");
-const cancelBtn = document.querySelector(".cancel-btn");
+const showMenu = (toggleId, navId) => {
+  const toggle = document.getElementById(toggleId),
+    nav = document.getElementById(navId)
 
-// Function to open the menu
-menuBtn.onclick = () => {
-  navbar.classList.add("show");
-  menuBtn.classList.add("hide");
-  body.classList.add("disabled"); // Prevent scrolling on the main page
-};
+  toggle.addEventListener('click', () => {
+    // Add show-menu class to nav menu
+    nav.classList.toggle('show-menu')
 
-// Function to close the menu
-cancelBtn.onclick = () => {
-  body.classList.remove("disabled"); // Allow scrolling on the main page
-  navbar.classList.remove("show");
-  menuBtn.classList.remove("hide");
-};
+    // Add show-icon to show and hide the menu icon
+    toggle.classList.toggle('show-icon')
+  })
+}
 
-// Scroll event to handle sticky navbar
+const navbarElements = document.querySelectorAll('.header, .nav__logo, .nav__burger, .nav__close, .nav__link, .dropdown__link, .nav__list');
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 20) {
-    navbar.classList.add('sticky');
+  if (window.scrollY > 75) {
+    navbarElements.forEach(element => {
+      element.classList.add('scrolled');
+    });
   } else {
-    navbar.classList.remove('sticky');
+    navbarElements.forEach(element => {
+      element.classList.remove('scrolled');
+    });
   }
-});
+})
+
+showMenu('nav-toggle', 'nav-menu')
+
 
 
 
@@ -59,32 +60,6 @@ function updateScrollProgress() {
 
   document.getElementById("scrollProgress").style.width = `${scrolled}%`;
 }
-
-
-
-// ==================== Hero ==================== 
-const slides = document.querySelectorAll('.text-slide');
-let currentSlide = 0;
-
-function changeSlide() {
-  // Remove active class from the current slide and add previous
-  slides[currentSlide].classList.remove('active');
-  slides[currentSlide].classList.add('previous');
-
-  // Move to the next slide, or loop back to the first one
-  currentSlide = (currentSlide + 1) % slides.length;
-
-  // Add active class to the new slide
-  slides[currentSlide].classList.add('active');
-
-  // Remove the 'previous' class from the new active slide after transition
-  slides.forEach(slide => slide.classList.remove('previous'));
-}
-
-// Start the slider; change slides every 4 seconds
-setInterval(changeSlide, 5000);
-
-
 
 // ==================== Showcase ==================== 
 const scrollers = document.querySelectorAll(".scroller");
