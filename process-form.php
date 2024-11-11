@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Prepare email
-    $to = "husseinalhejami72@gmail.com"; // Replace with your email address
+    $to = "hussein@artifexah.se"; // Replace with your email address
     $email_subject = "Ny konsultationsförfrågan: $subject";
     $email_body = "Du har fått ett nytt meddelande från ditt webbformulär.\n\n".
                   "Här är detaljerna:\n".
