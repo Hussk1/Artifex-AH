@@ -29,6 +29,37 @@ showMenu('nav-toggle', 'nav-menu')
 
 
 
+// ==================== Hero ==================== 
+document.addEventListener('DOMContentLoaded', function () {
+  const items = document.querySelectorAll('.hero-item');
+  let currentIndex = 0;
+  const totalItems = items.length;
+
+  // Function to show the next item
+  function showNextItem() {
+      // Hide the current item
+      items[currentIndex].classList.remove('active');
+      items[currentIndex].classList.add('hero-item-exit');
+
+      // Calculate the next index
+      currentIndex = (currentIndex + 1) % totalItems;
+
+      // Wait for the exit animation to finish before showing the next item
+      setTimeout(() => {
+          // Show the next item
+          items[currentIndex].classList.remove('hero-item-exit');
+          items[currentIndex].classList.add('active');
+      }, 1000); // Wait for the duration of the exit animation
+  }
+
+  // Initially set the first item to be active
+  items[0].classList.add('active');
+
+  // Set an interval to show the next item every 5 seconds
+  setInterval(showNextItem, 5000);
+});
+
+
 
 // ==================== Scroll back to top ==================== 
 window.onscroll = function () { scrollFunction(); updateScrollProgress(); };
@@ -58,10 +89,34 @@ function updateScrollProgress() {
   const clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
   const scrolled = (scrollTop / (scrollHeight - clientHeight)) * 100;
 
-  document.getElementById("scrollProgress").style.width = `${scrolled}%`;
+  //document.getElementById("scrollProgress").style.width = `${scrolled}%`;
+
 }
 
-// ==================== Showcase ==================== 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const scrollers = document.querySelectorAll(".scroller");
 
 // If a user hasn't opted in for recuded motion, then we add the animation
